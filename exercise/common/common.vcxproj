@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A08446F6-676F-45A9-B09E-5D9E0B87C9E7}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="../opengl.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)lib\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)lib\</OutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <ClCompile Include="src/drawable.cpp" />
+    <ClCompile Include="src/glslprogram.cpp" />
+    <ClCompile Include="src/vbotorus.cpp" />
+    <ClCompile Include="src\glutils.cpp" />
+    <ClCompile Include="src\vbocube.cpp" />
+    <ClCompile Include="src\vbomesh.cpp" />
+    <ClCompile Include="src\vboplane.cpp" />
+    <ClCompile Include="src\vboteapot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include/drawable.h" />
+    <ClInclude Include="include/glslprogram.h" />
+    <ClInclude Include="include/vbotorus.h" />
+    <ClInclude Include="include\glutils.h" />
+    <ClInclude Include="include\vbocube.h" />
+    <ClInclude Include="include\vboteapot.h" />
+  </ItemGroup>
+</Project>
