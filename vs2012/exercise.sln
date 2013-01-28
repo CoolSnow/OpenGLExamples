@@ -39,12 +39,24 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phongTeapot", "..\phongTeap
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phongEx", "..\phongEx\phongEx.vcxproj", "{22461428-5AF7-4EB9-A022-E8C0C4CC12B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "subroutine", "..\subroutine\subroutine.vcxproj", "{A7FCD222-CF4B-4467-A154-9A6ACC53EF9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "texture", "..\texture\texture.vcxproj", "{AFB395A0-7D8F-4C35-811C-507B8ADB2474}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "triangleGlfw", "..\triangleGlfw\triangleGlfw.vcxproj", "{CE05849E-22EB-4ACC-8233-5B3752F72E59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
