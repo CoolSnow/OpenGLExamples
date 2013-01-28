@@ -44,6 +44,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "subroutine", "..\subroutine
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "texture", "..\texture\texture.vcxproj", "{AFB395A0-7D8F-4C35-811C-507B8ADB2474}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "triangleGlfw", "..\triangleGlfw\triangleGlfw.vcxproj", "{CE05849E-22EB-4ACC-8233-5B3752F72E59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -94,6 +96,10 @@ Global
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Debug|Win32.Build.0 = Debug|Win32
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Release|Win32.ActiveCfg = Release|Win32
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Release|Win32.Build.0 = Release|Win32
+		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Debug|Win32.Build.0 = Debug|Win32
+		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Release|Win32.ActiveCfg = Release|Win32
+		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
