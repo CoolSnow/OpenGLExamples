@@ -3,13 +3,7 @@
 
 #include <stdio.h>
 #include <GL/glew.h>
-
-#ifdef __APPLE__
-#include <glut/glut.h>          // OS X version of GLUT
-#else
-#define FREEGLUT_STATIC
-#include <GL/glut.h>            // Windows FreeGlut equivalent
-#endif
+#include <GL/glfw.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -94,30 +88,49 @@ void RenderScene(void)
 
     setMatrices();
     cube->render();
-
-    glutSwapBuffers();
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Main entry point for GLUT based programs
 int main(int argc, char* argv[])
 {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
-    glutInitWindowSize(800, 600);
-    glutCreateWindow("texture");
-    glutReshapeFunc(ChangeSize);
-    glutDisplayFunc(RenderScene);
+    int running = GL_TRUE;
+    // Initialize GLFW
+    if( !glfwInit() )
+    {
+        exit( EXIT_FAILURE );
+    }
+
+    // Open an OpenGL window
+    if( !glfwOpenWindow( 800,600, 0,0,0,0,0,0, GLFW_WINDOW ) )
+    {
+        glfwTerminate();
+        exit( EXIT_FAILURE );
+    }
 
     GLenum err = glewInit();
-    if (GLEW_OK != err) {
-        fprintf(stderr, "GLEW Error: %s\n", glewGetErrorString(err));
-        return 1;
+    if ( GLEW_OK != err) {
+        fprintf(stderr , "GLEW Error: %s\n" , glewGetErrorString (err));
+        exit( EXIT_FAILURE );
     }
 
     SetupRC();
 
-    glutMainLoop();
-    return 0;
+    glfwSetWindowSizeCallback(ChangeSize);
+
+    // Main loop
+    while( running )
+    {
+        //// OpenGL rendering goes here...
+        RenderScene();
+        glfwSwapBuffers();
+        // Check if ESC key was pressed or window was closed
+
+        running = !glfwGetKey( GLFW_KEY_ESC ) &&
+            glfwGetWindowParam( GLFW_OPENED );
+    }
+    // Close window and terminate GLFW
+    glfwTerminate();
+    // Exit program
+    exit( EXIT_SUCCESS );
 }
