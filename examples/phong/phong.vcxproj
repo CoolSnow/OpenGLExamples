@@ -16,4 +16,8 @@
   <ItemGroup>
     <ClCompile Include="phong.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="phong.frag" />
+    <None Include="phong.vert" />
+  </ItemGroup>
 </Project>

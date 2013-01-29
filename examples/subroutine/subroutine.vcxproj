@@ -16,4 +16,8 @@
   <ItemGroup>
     <ClCompile Include="subroutine.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="subroutine.frag" />
+    <None Include="subroutine.vert" />
+  </ItemGroup>
 </Project>

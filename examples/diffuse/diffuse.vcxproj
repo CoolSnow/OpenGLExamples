@@ -14,4 +14,8 @@
   <ItemGroup>
     <ClCompile Include="diffuse.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="diffuse.frag" />
+    <None Include="diffuse.vert" />
+  </ItemGroup>
 </Project>

@@ -16,4 +16,8 @@
   <ItemGroup>
     <ClCompile Include="perfrag.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="perfrag.frag" />
+    <None Include="perfrag.vert" />
+  </ItemGroup>
 </Project>

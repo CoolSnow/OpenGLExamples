@@ -21,4 +21,8 @@
   <ItemGroup>
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="texture.fs" />
+    <None Include="texture.vs" />
+  </ItemGroup>
 </Project>

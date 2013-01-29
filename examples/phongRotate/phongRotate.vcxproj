@@ -17,4 +17,8 @@
   <ItemGroup>
     <ClCompile Include="phongRotate.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="phong.frag" />
+    <None Include="phong.vert" />
+  </ItemGroup>
 </Project>
