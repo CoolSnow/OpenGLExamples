@@ -148,7 +148,7 @@ VBOCube::VBOCube()
     glBindVertexArray(0);
 }
 
-void VBOCube::render() {
+void VBOCube::render() const {
     glBindVertexArray(vaoHandle);
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, ((GLubyte *)NULL + (0)));
 }

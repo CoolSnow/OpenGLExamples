@@ -1,7 +1,8 @@
 #ifndef VBOCUBE_H
 #define VBOCUBE_H
+#include "drawable.h"
 
-class VBOCube
+class VBOCube : public Drawable
 {
 
 private:
@@ -10,7 +11,7 @@ private:
 public:
     VBOCube();
 
-    void render();
+    void render() const;
 };
 
 #endif // VBOCUBE_H
