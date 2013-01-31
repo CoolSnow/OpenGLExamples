@@ -23,7 +23,6 @@ void SceneRenderToTex::initScene()
 
     angle = 0.0;
 
-    prog.setUniform("Light.Intensity", vec3(1.0f,1.0f,1.0f) );
     setupFBO();
 
     // One pixel white texture
