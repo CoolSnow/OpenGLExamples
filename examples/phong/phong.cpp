@@ -7,7 +7,6 @@
 #ifdef __APPLE__
 #include <glut/glut.h>          // OS X version of GLUT
 #else
-#define FREEGLUT_STATIC
 #include <GL/glut.h>            // Windows FreeGlut equivalent
 #endif
 
