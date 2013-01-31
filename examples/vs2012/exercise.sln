@@ -69,8 +69,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "normalmap", "..\normalmap\n
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cartoon", "..\cartoon\cartoon.vcxproj", "{E438638D-D4F2-4E1F-A5B1-90B5B228E1B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rendertotex", "..\rendertotex\rendertotex.vcxproj", "{6685E510-5056-4828-836D-50B01368760A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E438638D-D4F2-4E1F-A5B1-90B5B228E1B9} = {E438638D-D4F2-4E1F-A5B1-90B5B228E1B9}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

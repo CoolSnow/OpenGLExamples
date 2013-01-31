@@ -95,6 +95,7 @@ void SceneRenderToTex::renderToTexture() {
     projection = glm::perspective(60.0f, 1.0f, 0.3f, 100.0f);
 
     prog.setUniform("Light.Position", vec4(0.0f,0.0f,0.0f,1.0f) );
+    prog.setUniform("Light.Intensity", vec3(1.0f,1.0f,1.0f) );
     prog.setUniform("Material.Kd", 0.9f, 0.9f, 0.9f);
     prog.setUniform("Material.Ks", 0.95f, 0.95f, 0.95f);
     prog.setUniform("Material.Ka", 0.1f, 0.1f, 0.1f);
@@ -119,10 +120,11 @@ void SceneRenderToTex::renderScene() {
     projection = glm::perspective(45.0f, (float)width/height, 0.3f, 100.0f);
 
     prog.setUniform("Light.Position", vec4(0.0f,0.0f,0.0f,1.0f) );
+    prog.setUniform("Light.Intensity", vec3(1.0f,1.0f,1.0f) );
     prog.setUniform("Material.Kd", 0.9f, 0.9f, 0.9f);
-    prog.setUniform("Material.Ks", 0.0f, 0.0f, 0.0f);
+    prog.setUniform("Material.Ks", 0.95f, 0.95f, 0.95f);
     prog.setUniform("Material.Ka", 0.1f, 0.1f, 0.1f);
-    prog.setUniform("Material.Shininess", 0.0f);
+    prog.setUniform("Material.Shininess", 100.0f);
 
     model = mat4(1.0f);
     setMatrices();
