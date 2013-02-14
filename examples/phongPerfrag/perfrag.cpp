@@ -1,19 +1,9 @@
-// Triangle.cpp
-// Our first OpenGL program that will just draw a triangle on the screen.
-
-#include <stdio.h>
 #include <GL/glew.h>
-
-#ifdef __APPLE__
-#include <glut/glut.h>          // OS X version of GLUT
-#else
-#include <GL/glut.h>            // Windows FreeGlut equivalent
-#endif
-
+#include <GL/glfw.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform2.hpp>
-
+#include <iostream>
 #include "vbotorus.h"
 #include "glslprogram.h"
 
@@ -39,13 +29,12 @@ void ChangeSize(int w, int h)
 void SetupRC()
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f );
+    glEnable(GL_DEPTH_TEST);
 
     prog.compileShaderFromFile("perfrag.vert", GLSLShader::VERTEX);
     prog.compileShaderFromFile("perfrag.frag", GLSLShader::FRAGMENT);
     prog.link();
     prog.use();
-
-    glEnable(GL_DEPTH_TEST);
 
     torus = new VBOTorus(0.7f, 0.3f, 50, 50);
 
@@ -53,7 +42,6 @@ void SetupRC()
     model *= glm::rotate(-35.0f, vec3(1.0f,0.0f,0.0f));
     model *= glm::rotate(35.0f, vec3(0.0f,1.0f,0.0f));
     view = glm::lookAt(vec3(0.0f,0.0f,2.0f), vec3(0.0f,0.0f,0.0f), vec3(0.0f,1.0f,0.0f));
-    projection = mat4(1.0f);
     vec4 worldLight = vec4(5.0f,5.0f,2.0f,1.0f);
 
     prog.setUniform("Material.Kd", 0.9f, 0.5f, 0.3f);
@@ -65,7 +53,6 @@ void SetupRC()
     prog.setUniform("Light.Ls", 1.0f, 1.0f, 1.0f);
     prog.setUniform("Material.Shininess", 100.0f);
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Called to draw scene
@@ -79,30 +66,54 @@ void RenderScene(void)
     prog.setUniform("MVP", projection * mv);
 
     torus->render();
-
-    glutSwapBuffers();
 }
 
+void AppMain()
+{
+    // initialise GLFW
+    if(!glfwInit())
+        throw std::runtime_error("glfwInit failed");
+    
+    // open a window with GLFW
+    glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
+    glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
+    if(!glfwOpenWindow(800, 600, 8, 8, 8, 8, 16, 0, GLFW_WINDOW))
+        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 3.2?");
+    
+    // initialise GLEW
+    glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
+    if (GLEW_OK != glewInit())
+        throw std::runtime_error("glewInit failed");
+    
+    // make sure OpenGL version 3.2 API is available
+    if(!GLEW_VERSION_3_2)
+        throw std::runtime_error("OpenGL 3.2 API is not available.");
+    
+    glfwSetWindowSizeCallback(ChangeSize);
+    
+    SetupRC();
+    
+    while(glfwGetWindowParam(GLFW_OPENED) && !glfwGetKey( GLFW_KEY_ESC ))
+    {
+        RenderScene();
+        glfwSwapBuffers();
+    }
+    
+    glfwTerminate();
+}
 
 ///////////////////////////////////////////////////////////////////////////////
-// Main entry point for GLUT based programs
-int main(int argc, char* argv[])
+// Main entry point for GLFW based programs
+int main( int argc , char * argv [])
 {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
-    glutInitWindowSize(800, 600);
-    glutCreateWindow("perfrag");
-    glutReshapeFunc(ChangeSize);
-    glutDisplayFunc(RenderScene);
-
-    GLenum err = glewInit();
-    if (GLEW_OK != err) {
-        fprintf(stderr, "GLEW Error: %s\n", glewGetErrorString(err));
-        return 1;
+    try {
+        AppMain();
+    } catch (const std::exception& e){
+        std::cerr << "ERROR: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
-
-    SetupRC();
-
-    glutMainLoop();
-    return 0;
+    
+    return EXIT_SUCCESS;
 }

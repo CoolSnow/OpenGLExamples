@@ -4,7 +4,7 @@
     <ProjectGuid>{A7FCD222-CF4B-4467-A154-9A6ACC53EF9B}</ProjectGuid>
   </PropertyGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="../opengl.exe.props" />
+    <Import Project="../openglGlfw.exe.props" />
   </ImportGroup>
   <ItemDefinitionGroup>
     <Link>

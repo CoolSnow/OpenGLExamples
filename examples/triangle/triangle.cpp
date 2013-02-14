@@ -1,15 +1,9 @@
 // Triangle.cpp
 // Our first OpenGL program that will just draw a triangle on the screen.
 
-#include <stdio.h>
 #include <GL/glew.h>
-
-#ifdef __APPLE__
-#include <glut/glut.h>          // OS X version of GLUT
-#else
-#include <GL/glut.h>            // Windows FreeGlut equivalent
-#endif
-
+#include <GL/glfw.h>
+#include <iostream>
 #include "glslprogram.h"
 
 GLSLProgram prog;
@@ -108,31 +102,56 @@ void RenderScene( void)
 
     glBindVertexArray(vaoHandle );
     glDrawArrays(GL_TRIANGLES , 0 , 3 );
+}
 
-    // Perform the buffer swap to display back buffer
-    glutSwapBuffers();
+
+void AppMain()
+{
+    // initialise GLFW
+    if(!glfwInit())
+        throw std::runtime_error("glfwInit failed");
+    
+    // open a window with GLFW
+    glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
+    glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
+    if(!glfwOpenWindow(800, 600, 8, 8, 8, 8, 16, 0, GLFW_WINDOW))
+        throw std::runtime_error("glfwOpenWindow failed. Can your hardware handle OpenGL 3.2?");
+    
+    // initialise GLEW
+    glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
+    if (GLEW_OK != glewInit())
+        throw std::runtime_error("glewInit failed");
+    
+    // make sure OpenGL version 3.2 API is available
+    if(!GLEW_VERSION_3_2)
+        throw std::runtime_error("OpenGL 3.2 API is not available.");
+    
+    glfwSetWindowSizeCallback(ChangeSize);
+    
+    SetupRC();
+    
+    while(glfwGetWindowParam(GLFW_OPENED) && !glfwGetKey( GLFW_KEY_ESC ))
+    {
+        RenderScene();
+        glfwSwapBuffers();
+    }
+    
+    glfwTerminate();
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Main entry point for GLUT based programs
+// Main entry point for GLFW based programs
 int main( int argc , char * argv [])
 {
-    glutInit(&argc , argv );
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL );
-    glutInitWindowSize(800 , 600 );
-    glutCreateWindow("Triangle" );
-    glutReshapeFunc(ChangeSize );
-    glutDisplayFunc(RenderScene );
-
-    GLenum err = glewInit();
-    if ( GLEW_OK != err) {
-        fprintf(stderr , "GLEW Error: %s\n" , glewGetErrorString (err));
-        return 1 ;
+    try {
+        AppMain();
+    } catch (const std::exception& e){
+        std::cerr << "ERROR: " << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
-
-    SetupRC();
-
-    glutMainLoop();
-    return 0 ;
+    
+    return EXIT_SUCCESS;
 }

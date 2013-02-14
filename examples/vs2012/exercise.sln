@@ -53,11 +53,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "texture", "..\texture\textu
 		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "triangleGlfw", "..\triangleGlfw\triangleGlfw.vcxproj", "{CE05849E-22EB-4ACC-8233-5B3752F72E59}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multitex", "..\multitex\multitex.vcxproj", "{5DAD0C4F-313F-4D93-9135-EDCA9482D6E2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
@@ -79,6 +74,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rendertotex", "..\rendertot
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "edge", "..\edge\edge.vcxproj", "{0AB6D5DC-DE30-4611-8441-6670580243D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A08446F6-676F-45A9-B09E-5D9E0B87C9E7} = {A08446F6-676F-45A9-B09E-5D9E0B87C9E7}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,10 +128,6 @@ Global
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Debug|Win32.Build.0 = Debug|Win32
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Release|Win32.ActiveCfg = Release|Win32
 		{AFB395A0-7D8F-4C35-811C-507B8ADB2474}.Release|Win32.Build.0 = Release|Win32
-		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Debug|Win32.ActiveCfg = Debug|Win32
-		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Debug|Win32.Build.0 = Debug|Win32
-		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Release|Win32.ActiveCfg = Release|Win32
-		{CE05849E-22EB-4ACC-8233-5B3752F72E59}.Release|Win32.Build.0 = Release|Win32
 		{5DAD0C4F-313F-4D93-9135-EDCA9482D6E2}.Debug|Win32.ActiveCfg = Debug|Win32
 		{5DAD0C4F-313F-4D93-9135-EDCA9482D6E2}.Debug|Win32.Build.0 = Debug|Win32
 		{5DAD0C4F-313F-4D93-9135-EDCA9482D6E2}.Release|Win32.ActiveCfg = Release|Win32

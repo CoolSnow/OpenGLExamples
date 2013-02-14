@@ -58,7 +58,7 @@ void SetupRC()
     projection = mat4(1.0f);
 
     prog.setUniform("Light.Position", vec4(0.0f,0.0f,0.0f,1.0f) );
-	prog.setUniform("Light.Intensity", vec3(1.0f,1.0f,1.0f) );
+    prog.setUniform("Light.Intensity", vec3(1.0f,1.0f,1.0f) );
     prog.setUniform("Material.Kd", 0.9f, 0.9f, 0.9f);
     prog.setUniform("Material.Ks", 0.95f, 0.95f, 0.95f);
     prog.setUniform("Material.Ka", 0.1f, 0.1f, 0.1f);
