@@ -1,7 +1,7 @@
 #include "vbomesh.h"
 //#include "glutils.h"
 
-#define uint unsigned int
+//#define uint unsigned int
 
 #include <iostream>
 using std::cout;
@@ -13,7 +13,7 @@ using std::ifstream;
 using std::istringstream;
 
 #include <GL/glew.h>
-#include <GL/gl.h>
+
 
 VBOMesh::VBOMesh(const char * fileName, bool center)
 {
@@ -266,8 +266,8 @@ void VBOMesh::storeVBO( const vector<vec3> & points,
                         const vector<vec4> &tangents,
                         const vector<int> &elements )
 {
-    int nVerts  = points.size();
-    faces = elements.size() / 3;
+    size_t nVerts  = points.size();
+    faces = (unsigned int)elements.size() / 3;
 
     float * v = new float[3 * nVerts];
     float * n = new float[3 * nVerts];

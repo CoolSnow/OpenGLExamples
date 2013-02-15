@@ -1,8 +1,6 @@
 #include "vbotorus.h"
 #include "defines.h"
 #include <GL/glew.h>
-#include <GL/gl.h>
-
 #include <cstdio>
 #include <cmath>
 

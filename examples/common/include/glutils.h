@@ -1,8 +1,7 @@
 #ifndef GLUTILS_H
 #define GLUTILS_H
 
-#include <gl\glew.h>			// OpenGL Extension "autoloader"
-#include <gl\gl.h>			// Microsoft OpenGL headers (version 1.1 by themselves)
+#include <gl/glew.h>			// OpenGL Extension "autoloader"
 
 class GLUtils
 {

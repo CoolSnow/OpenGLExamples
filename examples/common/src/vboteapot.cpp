@@ -1,9 +1,7 @@
 #include "vboteapot.h"
 #include "teapotdata.h"
 //#include "glutils.h"
-
 #include <GL/glew.h>
-#include <GL/gl.h>
 
 #ifdef Q_OS_MAC
 #include <OpenGL/gl.h>

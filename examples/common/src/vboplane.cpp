@@ -1,7 +1,6 @@
 #include "vboplane.h"
 #include "defines.h"
 #include <GL/glew.h>
-#include <GL/gl.h>
 #include "glutils.h"
 
 #include <cstdio>

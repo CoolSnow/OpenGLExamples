@@ -9,7 +9,7 @@
 GLSLProgram prog;
 GLuint vaoHandle;
 
-static const char * szIdentityShaderVP = "#version 130 \n"
+static const char * szIdentityShaderVP = "#version 150 \n"
                                          "in vec3 vVertex;"
                                          "in vec3 vColor;"
                                          "out vec3 Color;"
@@ -18,7 +18,7 @@ static const char * szIdentityShaderVP = "#version 130 \n"
                                          "  gl_Position = vec4(vVertex, 1.0);"
                                          "}";
 
-static const char * szIdentityShaderFP = "#version 130 \n"
+static const char * szIdentityShaderFP = "#version 150 \n"
                                          "in vec3 Color;"
                                          "out vec4 FragColor;"
                                          "void main(void)"
@@ -46,8 +46,13 @@ void SetupRC()
     // Black background
     glClearColor(0.0f , 0.0f , 0.0f , 1.0f );
 
-    prog.compileShaderFromString (szIdentityShaderVP, GLSLShader:: VERTEX);
-    prog.compileShaderFromString (szIdentityShaderFP, GLSLShader:: FRAGMENT);
+    bool bRet = prog.compileShaderFromString (szIdentityShaderVP, GLSLShader:: VERTEX);
+    if (!bRet)
+        throw std::runtime_error(prog.log());
+    bRet = prog.compileShaderFromString (szIdentityShaderFP, GLSLShader:: FRAGMENT);
+    if (!bRet)
+        throw std::runtime_error(prog.log());
+    
     // These three lines could not be removed
     prog.bindAttribLocation(0, "vVertex");
     prog.bindAttribLocation(1, "vColor");
