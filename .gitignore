@@ -162,7 +162,6 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
-#xcuserdata/**/*
-#!xcuserdata/**/xcschemes/*
-examples/xcode/*.xcodeproj/*
-!examples/xcode/*.xcodeproj/project.pbxproj
+examples/xcode/*.xcodeproj/xcuserdata/*
+!examples/xcode/*.xcodeproj/**/xcschemes/*
+

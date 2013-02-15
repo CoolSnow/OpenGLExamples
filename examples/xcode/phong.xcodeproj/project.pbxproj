@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E6F156A16CE5FB900D05141 /* phong.frag in Resources */ = {isa = PBXBuildFile; fileRef = 8E6F156816CE5FA100D05141 /* phong.frag */; };
+		8E6F156B16CE5FBC00D05141 /* phong.vert in Resources */ = {isa = PBXBuildFile; fileRef = 8E6F156916CE5FA100D05141 /* phong.vert */; };
 		8ED2F7C816CE3E05006B00E1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ED2F7C716CE3E05006B00E1 /* OpenGL.framework */; };
-		8ED2F7D116CE3FEB006B00E1 /* triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED2F7C516CE3DB8006B00E1 /* triangle.cpp */; };
+		8ED2F7D116CE3FEB006B00E1 /* phong.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED2F7C516CE3DB8006B00E1 /* phong.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8ED2F7C516CE3DB8006B00E1 /* triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = triangle.cpp; path = ../triangle/triangle.cpp; sourceTree = "<group>"; };
+		8E6F156816CE5FA100D05141 /* phong.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = phong.frag; path = ../phong/phong.frag; sourceTree = "<group>"; };
+		8E6F156916CE5FA100D05141 /* phong.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = phong.vert; path = ../phong/phong.vert; sourceTree = "<group>"; };
+		8ED2F7C516CE3DB8006B00E1 /* phong.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = phong.cpp; path = ../phong/phong.cpp; sourceTree = "<group>"; };
 		8ED2F7C716CE3E05006B00E1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		8ED2F7C916CE3F82006B00E1 /* common.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = common.xcodeproj; sourceTree = "<group>"; };
-		8EE7402A16CE3C5900624C58 /* triangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EE7402A16CE3C5900624C58 /* phong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = phong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,9 @@
 		8ED2F7C616CE3DC5006B00E1 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				8ED2F7C516CE3DB8006B00E1 /* triangle.cpp */,
+				8ED2F7C516CE3DB8006B00E1 /* phong.cpp */,
+				8E6F156816CE5FA100D05141 /* phong.frag */,
+				8E6F156916CE5FA100D05141 /* phong.vert */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -76,7 +82,7 @@
 		8EE7402B16CE3C5900624C58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8EE7402A16CE3C5900624C58 /* triangle.app */,
+				8EE7402A16CE3C5900624C58 /* phong.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,9 +98,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8EE7402916CE3C5900624C58 /* triangle */ = {
+		8EE7402916CE3C5900624C58 /* phong */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8EE7404716CE3C5900624C58 /* Build configuration list for PBXNativeTarget "triangle" */;
+			buildConfigurationList = 8EE7404716CE3C5900624C58 /* Build configuration list for PBXNativeTarget "phong" */;
 			buildPhases = (
 				8EE7402616CE3C5900624C58 /* Sources */,
 				8EE7402716CE3C5900624C58 /* Frameworks */,
@@ -105,9 +111,9 @@
 			dependencies = (
 				8ED2F7D016CE3F8F006B00E1 /* PBXTargetDependency */,
 			);
-			name = triangle;
-			productName = triangle;
-			productReference = 8EE7402A16CE3C5900624C58 /* triangle.app */;
+			name = phong;
+			productName = phong;
+			productReference = 8EE7402A16CE3C5900624C58 /* phong.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,7 +125,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = wolf76;
 			};
-			buildConfigurationList = 8EE7402516CE3C5900624C58 /* Build configuration list for PBXProject "triangle" */;
+			buildConfigurationList = 8EE7402516CE3C5900624C58 /* Build configuration list for PBXProject "phong" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -137,7 +143,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				8EE7402916CE3C5900624C58 /* triangle */,
+				8EE7402916CE3C5900624C58 /* phong */,
 			);
 		};
 /* End PBXProject section */
@@ -157,6 +163,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6F156A16CE5FB900D05141 /* phong.frag in Resources */,
+				8E6F156B16CE5FBC00D05141 /* phong.vert in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +175,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ED2F7D116CE3FEB006B00E1 /* triangle.cpp in Sources */,
+				8ED2F7D116CE3FEB006B00E1 /* phong.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +294,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8EE7402516CE3C5900624C58 /* Build configuration list for PBXProject "triangle" */ = {
+		8EE7402516CE3C5900624C58 /* Build configuration list for PBXProject "phong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8EE7404516CE3C5900624C58 /* Debug */,
@@ -295,7 +303,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8EE7404716CE3C5900624C58 /* Build configuration list for PBXNativeTarget "triangle" */ = {
+		8EE7404716CE3C5900624C58 /* Build configuration list for PBXNativeTarget "phong" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8EE7404816CE3C5900624C58 /* Debug */,
