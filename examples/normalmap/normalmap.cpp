@@ -40,9 +40,12 @@ int main(int argc, char* argv[])
     int running = GL_TRUE;
     // Initialize GLFW
     if( !glfwInit() )
-    {
         exit( EXIT_FAILURE );
-    }
+
+    glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MAJOR, 3);
+    glfwOpenWindowHint(GLFW_OPENGL_VERSION_MINOR, 2);
+    glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
 
     // Open an OpenGL window
     if( !glfwOpenWindow( 800,600, 0,0,0,0,0,0, GLFW_WINDOW ) )
@@ -51,6 +54,7 @@ int main(int argc, char* argv[])
         exit( EXIT_FAILURE );
     }
 
+    glewExperimental = GL_TRUE; //stops glew crashing on OSX :-/
     GLenum err = glewInit();
     if ( GLEW_OK != err) {
         fprintf(stderr , "GLEW Error: %s\n" , glewGetErrorString (err));

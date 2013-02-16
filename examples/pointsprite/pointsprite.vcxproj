@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CDB5BAD1-E1A2-4256-BF5E-1551CA160DB6}</ProjectGuid>
+  </PropertyGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="../openglGlfw.exe.props" />
+  </ImportGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SOIL.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\soil\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile />
+    <ClCompile />
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\soil;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="pointsprite.cpp" />
+    <ClCompile Include="scenepointsprite.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pointsprite.fs" />
+    <None Include="pointsprite.gs" />
+    <None Include="pointsprite.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scenepointsprite.h" />
+  </ItemGroup>
+</Project>

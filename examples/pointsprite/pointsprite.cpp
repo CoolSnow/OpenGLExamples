@@ -5,7 +5,7 @@
 #include <GL/glew.h>
 #include <GL/glfw.h>
 
-#include "scenerendertotex.h"
+#include "scenepointsprite.h"
 
 Scene * scene = NULL;
 
@@ -22,7 +22,7 @@ void ChangeSize(int w, int h)
 // This is the first opportunity to do any OpenGL related tasks.
 void SetupRC()
 {
-    scene = new SceneRenderToTex();
+    scene = new ScenePointSprite();
     scene->initScene();
 }
 
@@ -62,7 +62,6 @@ int main(int argc, char* argv[])
     }
 
     SetupRC();
-
     glfwSetWindowSizeCallback(ChangeSize);
 
     // Main loop
