@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6E98F04A-B8AD-423B-9F0D-53D361893726}</ProjectGuid>
+  </PropertyGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="../openglGlfw.exe.props" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="bezcurve.cpp" />
+    <ClCompile Include="scenebezcurve.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bezcurve.fs" />
+    <None Include="bezcurve.tcs" />
+    <None Include="bezcurve.tes" />
+    <None Include="bezcurve.vs" />
+    <None Include="solid.fs" />
+    <None Include="solid.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scenebezcurve.h" />
+  </ItemGroup>
+</Project>
